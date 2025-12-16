@@ -5,9 +5,10 @@ import exercise_1 as e1
 import exercise_2 as e2
 
 #Set Number of Epochs:
-epochs = 1000
+epochs = 20000
 train_loader = None
 test_loader = None
+test_outputs = None
 
 #EXERCISE 3: Model Training
 #Training Loop:
@@ -63,15 +64,12 @@ def train_model(optimizer, model,epochs, train_loader, test_loader):
     print(f'Train Accuracy: {train_accuracy:.4f}, Test Accuracy: {test_accuracy:.4f}')
     return torch.cat(all_test_outputs, dim=0), test_accuracy
 
-def main():
-    global epochs, train_loader, test_loader
+def run_exercise_3():
+    global epochs, train_loader, test_loader, test_outputs
     # Create DataLoader for training and test sets
     train_dataset = TensorDataset(e1.X_train, e1.y_train)
     test_dataset = TensorDataset(e1.X_test, e1.y_test)
 
     train_loader = DataLoader(train_dataset, batch_size=600, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=200, shuffle=False)
-
-    
-
-    train_model(e2.optimizer, e2.model, epochs, train_loader, test_loader)
+    test_outputs, _ = train_model(e2.optimizer, e2.model, epochs, train_loader, test_loader)

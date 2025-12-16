@@ -9,7 +9,7 @@ L2_accuracy = None
 
 #EXERCISE 4: Model Optimization and Evaluation
 
-def main(): 
+def run_exercise_4(): 
     global optimizerL2, L2_test_outputs, L2_accuracy
     #Set Up the Optimizer with L2 Regularization:
     optimizerL2 = optim.SGD(e2.model.parameters(), lr=0.01, weight_decay=0.01)

@@ -10,10 +10,10 @@ y_test = None
 X = None
 
 #EXERCISE 1: Data Loading and Preprocessing
-def main():
+def run_exercise_1(url):
     global X_train, X_test, y_train, y_test, input_dim, X
     #Load the dataset
-    lolDf = pd.read_csv("https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/rk7VDaPjMp1h5VXS-cUyMg/league-of-legends-data-large.csv")
+    lolDf = pd.read_csv(url)
 
     #Split data into features and targe
     X = lolDf.drop('win', axis=1)

@@ -6,7 +6,7 @@ import exercise_2 as e2
 import exercise_3 as e3
 
 #EXERCISE 7: Hyperparameter Tuning
-def main():
+def run_exercise_7():
     #Define Learning Rates
     lr_list = [0.01, 0.05, 0.1]
 

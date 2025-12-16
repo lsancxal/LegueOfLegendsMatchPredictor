@@ -1,9 +1,12 @@
 
+import os
 import torch
 
 import exercise_1 as e1
 import exercise_2 as e2
 import exercise_3 as e3
+
+MODEL_PATH = os.path.join('assets', 'lol_model.pth')
 
 
 #EXERCISE 6: Model Saving and Loading
@@ -32,12 +35,12 @@ def evaluate_model(model, test_loader):
     return torch.cat(all_test_outputs, dim=0)
 
 
-def main():
+def run_exercise_6():
     # Save the model
-    torch.save(e2.model.state_dict(), 'lol_model.pth')
+    torch.save(e2.model.state_dict(), MODEL_PATH)
 
     # Load the model
     new_model = e2.LogisticRegressionModel(input_units=e2.input_dim, hidden_units=8, output_units=1)
-    new_model.load_state_dict(torch.load('lol_model.pth'))
+    new_model.load_state_dict(torch.load(MODEL_PATH))
 
     loaded_model_outputs = evaluate_model(new_model, e3.test_loader)

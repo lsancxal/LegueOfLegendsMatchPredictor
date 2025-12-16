@@ -3,6 +3,7 @@ from sklearn.metrics import confusion_matrix, classification_report, roc_curve, 
 
 import exercise_1 as e1
 import exercise_4 as e4
+import exercise_3 as e3
 
 #EXERCISE 5: Visualization and Interpretation
 def plot_confusion_matrix(y_pred_test, y_test):
@@ -22,7 +23,7 @@ def plot_confusion_matrix(y_pred_test, y_test):
     print("Classification Report:\n", classification_report(y_test, y_pred_test_labels, target_names=['Loss', 'Win']))
 
     # Plot ROC curve
-    fpr, tpr, thresholds = roc_curve(y_test, y_pred_test)
+    fpr, tpr, _ = roc_curve(y_test, y_pred_test)
     roc_auc = auc(fpr, tpr)
 
     plt.figure()
@@ -36,7 +37,5 @@ def plot_confusion_matrix(y_pred_test, y_test):
     plt.legend(loc="lower right")
     plt.show()
 
-def main():
-    plot_confusion_matrix(e4.L2_test_outputs, e1.y_test)
-
-
+def run_exercise_5():
+    plot_confusion_matrix(e3.test_outputs, e1.y_test)

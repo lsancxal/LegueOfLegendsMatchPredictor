@@ -6,7 +6,7 @@ import exercise_2 as e2
 
 #EXERCISE 8: Feature Importance
 
-def main():
+def run_exercise_8():
     #Extracting Model Weights
     model_weights = e2.model.fc1.weight.data.abs().mean(dim=0).numpy()
     feature_names = e1.X.columns

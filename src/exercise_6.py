@@ -40,7 +40,7 @@ def run_exercise_6():
     torch.save(e2.model.state_dict(), MODEL_PATH)
 
     # Load the model
-    new_model = e2.LogisticRegressionModel(input_units=e2.input_dim, hidden_units=8, output_units=1)
+    new_model = e2.LogisticRegressionModel(input_units=e2.input_dim, hidden_units=32, output_units=1)
     new_model.load_state_dict(torch.load(MODEL_PATH))
 
     loaded_model_outputs = evaluate_model(new_model, e3.test_loader)

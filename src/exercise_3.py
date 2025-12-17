@@ -5,7 +5,7 @@ import exercise_1 as e1
 import exercise_2 as e2
 
 #Set Number of Epochs:
-epochs = 20000
+epochs = 500
 train_loader = None
 test_loader = None
 test_outputs = None
@@ -70,6 +70,6 @@ def run_exercise_3():
     train_dataset = TensorDataset(e1.X_train, e1.y_train)
     test_dataset = TensorDataset(e1.X_test, e1.y_test)
 
-    train_loader = DataLoader(train_dataset, batch_size=600, shuffle=True)
-    test_loader = DataLoader(test_dataset, batch_size=200, shuffle=False)
+    train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
+    test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
     test_outputs, _ = train_model(e2.optimizer, e2.model, epochs, train_loader, test_loader)
